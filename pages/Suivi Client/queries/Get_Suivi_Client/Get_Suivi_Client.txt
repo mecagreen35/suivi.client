@@ -1,0 +1,2 @@
+SELECT * FROM public.v_suivi_client_public 
+WHERE "Code_Suivi_Client" = '{{ appsmith.URL.queryParams.t }}';

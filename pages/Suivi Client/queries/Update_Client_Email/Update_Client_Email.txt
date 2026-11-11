@@ -1,0 +1,3 @@
+UPDATE public."Clients" 
+SET "Email" = '{{ inp_client_email.text }}'
+WHERE "ID_Client" = '{{ Get_Suivi_Client.data[0]?.ID_Client }}';

@@ -1,0 +1,52 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 8,
+  "boxShadow": "none",
+  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "buttonVariant": "TERTIARY",
+  "disabledWhenInvalid": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "buttonColor"
+    },
+    {
+      "key": "borderRadius"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "isDefaultClickDisabled": true,
+  "isDisabled": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "pbxeuqv1xy",
+  "labelStyle": "BOLD",
+  "labelTextSize": "0.875rem",
+  "leftColumn": 1,
+  "minWidth": 120,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 13,
+  "mobileRightColumn": 29,
+  "mobileTopRow": 3,
+  "needsErrorInfo": false,
+  "onClick": "{{navigateTo('https://www.meca-green-motoculture.com', {}, 'NEW_WINDOW');}}",
+  "parentColumnSpace": 6.21875,
+  "parentId": "codr4l8url",
+  "parentRowSpace": 10,
+  "placement": "CENTER",
+  "recaptchaType": "V3",
+  "renderMode": "CANVAS",
+  "resetFormOnClick": false,
+  "responsiveBehavior": "hug",
+  "rightColumn": 63,
+  "text": "🌐 Visiter notre site\nMeca Green Motoculture",
+  "topRow": 1,
+  "type": "BUTTON_WIDGET",
+  "version": 1,
+  "widgetId": "lrnzckmqrs",
+  "widgetName": "Button1"
+}

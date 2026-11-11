@@ -1,0 +1,46 @@
+{
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 22,
+  "counterClosewise": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "fillColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "progress"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fillColor": "{{appsmith.theme.colors.primaryColor}}",
+  "isCanvas": false,
+  "isIndeterminate": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "9dgh7uxh91",
+  "leftColumn": 0,
+  "mobileBottomRow": 21,
+  "mobileLeftColumn": 9,
+  "mobileRightColumn": 37,
+  "mobileTopRow": 17,
+  "needsErrorInfo": false,
+  "originalBottomRow": 22,
+  "originalTopRow": 18,
+  "parentColumnSpace": 6.53125,
+  "parentId": "8ry6v8x632",
+  "parentRowSpace": 10,
+  "progress": "{{ (Get_Suivi_Client.data[0]?.Etape_Jauge || 1) * 25 }}",
+  "progressType": "linear",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "showResult": false,
+  "steps": "4",
+  "topRow": 18,
+  "type": "PROGRESS_WIDGET",
+  "version": 1,
+  "widgetId": "imlgbq9d9r",
+  "widgetName": "Progress1"
+}
