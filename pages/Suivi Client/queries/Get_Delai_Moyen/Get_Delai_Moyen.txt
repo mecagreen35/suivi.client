@@ -1,6 +1,6 @@
 WITH categories_ref AS (
-    SELECT '2T' AS cat, 4 AS delai_defaut
-    UNION ALL SELECT '4T', 7
+    SELECT '2T' AS cat, 5 AS delai_defaut
+    UNION ALL SELECT '4T', 8
     UNION ALL SELECT 'ROBOT', 5
 ),
 calcul_delais AS (
@@ -14,9 +14,13 @@ calcul_delais AS (
     FROM public."Interventions" i
     LEFT JOIN public."Parc_Materiel" pm ON pm."ID_Machine" = i."ID_Machine"
     WHERE i."Date_Passage_En_Cours" IS NOT NULL
-      -- Fenêtre glissante de 45 jours : colle à la saison active (avril prend mars-avril, jamais novembre)
+      -- Prise en charge effectuée dans les 45 derniers jours
       AND i."Date_Passage_En_Cours" >= CURRENT_DATE - INTERVAL '45 days'
       AND i."Date_Passage_En_Cours" >= COALESCE(i."Date_Entree"::timestamptz, i."Date_Heure_Creation")
+      -- 🟢 EXCLUSION : ignore les dossiers ayant attendu plus de 45 jours (ou durée négative)
+      AND (EXTRACT(EPOCH FROM (i."Date_Passage_En_Cours" - COALESCE(i."Date_Entree"::timestamptz, i."Date_Heure_Creation")))/86400.0) BETWEEN 0 AND 45
+      -- Exclusion des dossiers de test éventuels
+      AND COALESCE(i."N° OR", '') NOT ILIKE '%TEST%'
 )
 SELECT 
     r.cat AS "Categorie_Materiel",
