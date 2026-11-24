@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 35,
+  "bottomRow": 30,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -41,7 +41,7 @@
   "mobileRightColumn": 28,
   "mobileTopRow": 26,
   "needsErrorInfo": false,
-  "originalBottomRow": 30,
+  "originalBottomRow": 35,
   "originalTopRow": 26,
   "overflow": "NONE",
   "parentColumnSpace": 6.53125,
@@ -51,7 +51,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 64,
   "shouldTruncate": false,
-  "text": "{{\n  (() => {\n    const cat = Get_Suivi_Client.data[0]?.Categorie_Materiel || '4T';\n    const joursPresents = Get_Suivi_Client.data[0]?.Jours_Dans_Atelier || 0;\n    const rowDelai = (Get_Delai_Moyen.data || []).find(r => r.Categorie_Materiel === cat);\n    const delaiMoyen = rowDelai?.Delai_Moyen_Jours || 7;\n    const resteJours = delaiMoyen - joursPresents;\n\n    if (resteJours <= 1) {\n      return \"⏳ Prise en charge imminente : votre matériel arrive en tête de file d'attente à l'atelier.\";\n    }\n\n    return \"⏳ Délai estimé : encore environ \" + resteJours + \" jour\" + (resteJours > 1 ? \"s\" : \"\") + \" avant intervention sur votre matériel (\" + cat + \").\\n(Délai moyen atelier : \" + delaiMoyen + \" jours — Déposé il y a \" + joursPresents + \" jours).\";\n  })()\n}}",
+  "text": "{{\n  (() => {\n    const row = Get_Suivi_Client.data?.[0];\n    if (!row) return \"\";\n\n    const cat = row.Categorie_Materiel || '4T';\n    const jours = row.Delai_Annonce_Jours || 1;\n    const texteDelai = jours <= 1\n      ? \"prise en charge sous 24 h (dès aujourd'hui selon disponibilité)\"\n      : \"environ \" + jours + \" jours avant le début de l'intervention\";\n\n    return \"⏳ Délai d'attente estimé (\" + cat + \") : actuellement \" + texteDelai + \".\\nCe délai s'adapte en temps réel à la charge de l'atelier et reste donné à titre indicatif.\";\n  })()\n}}",
   "textAlign": "CENTER",
   "textColor": "#231F20",
   "topRow": 26,
